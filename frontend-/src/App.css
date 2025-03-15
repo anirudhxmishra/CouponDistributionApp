@@ -1,0 +1,155 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #01012d; /* Dark blue background */
+  color: #333; /* Default text color */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #4a90e2; /* Blue heading color */
+  margin-bottom: 60px;
+}
+
+button {
+  background-color: #a1af24; /* Green button color */
+  color: rgb(0, 0, 0); /* Black text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #357abd; /* Darker blue on hover */
+}
+
+/* Coupon Claim Section */
+.coupon-claim {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.coupon-claim p {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #4a90e2; /* Blue text for messages */
+}
+
+/* Admin Login Section */
+.admin-login {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-login h1 {
+  margin-bottom: 20px;
+}
+
+.admin-login form {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-login input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.admin-login p {
+  color: red; /* Error message color */
+  text-align: center;
+}
+
+/* Admin Panel Section */
+.admin-panel {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-panel h1 {
+  margin-bottom: 20px;
+}
+
+.admin-panel ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.admin-panel li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.admin-panel li:last-child {
+  border-bottom: none;
+}
+
+/* Logout Button */
+.admin-panel button {
+  background-color: #ff4d4d; /* Red button color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.admin-panel button:hover {
+  background-color: #cc0000; /* Darker red on hover */
+}
+
+/* Loading and Error Messages */
+.loading, .error {
+  text-align: center;
+  font-size: 18px;
+  color: #4a90e2; /* Blue text for messages */
+  margin-top: 50px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .admin-login, .admin-panel {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
