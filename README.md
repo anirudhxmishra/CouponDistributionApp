@@ -1,70 +1,154 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Round-Robin Coupon Distribution
 
-## Available Scripts
+A full-stack web application that distributes coupons to users in a round-robin manner, with an admin panel for managing coupons and tracking claims.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### User Side
+- Claim coupons sequentially without repetition.
+- Abuse prevention via IP and browser session tracking.
+- Real-time feedback for successful claims or errors.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Admin Side
+- Secure JWT-based authentication.
+- View all coupons (available/claimed).
+- Track claim history (IP, session, timestamp).
+- Responsive UI for easy management.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `npm run build`
+- **Frontend**: React.js
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Authentication**: JWT
+- **Deployment**: Vercel (Frontend), Render/Heroku (Backend)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Setup Instructions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
+- Node.js (v16+)
+- MongoDB (Local or Atlas)
+- Git
 
-### `npm run eject`
+### Backend Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/anirudhxmishra/CouponDistributionApp.git
+   cd backend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create `.env` file:
+   ```env
+   MONGO_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net/coupon-app
+   JWT_SECRET=your_jwt_secret
+   PORT=5000
+   ```
+4. Start the server:
+   ```bash
+   npm start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Frontend Setup
+1. Navigate to the frontend folder:
+   ```bash
+   cd ../frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create `.env` file:
+   ```env
+   REACT_APP_API_URL=http://localhost:5000
+   ```
+4. Start the app:
+   ```bash
+   npm start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## API Endpoints
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### User Endpoints
+| Method | Endpoint                | Description                     |
+|--------|-------------------------|---------------------------------|
+| GET    | `/api/coupons/next`     | Get next available coupon       |
+| POST   | `/api/coupons/claim`    | Claim a coupon                  |
 
-## Learn More
+### Admin Endpoints
+| Method | Endpoint                | Description                     |
+|--------|-------------------------|---------------------------------|
+| POST   | `/api/admin/login`      | Admin login                     |
+| GET    | `/api/admin/coupons`    | Get all coupons                |
+| GET    | `/api/admin/claim-history` | Get claim history             |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deployment
+1. **Backend**: Deploy to [Render](https://render.com/).
+   - Set environment variables: `MONGO_URI`, `JWT_SECRET`, `PORT`
+2. **Frontend**: Deploy to [Vercel](https://vercel.com/).
+   - Set environment variable: `REACT_APP_API_URL`
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Environment Variables
+| Variable           | Description                     |
+|--------------------|---------------------------------|
+| `MONGO_URI`        | MongoDB connection string       |
+| `JWT_SECRET`       | Secret key for JWT tokens       |
+| `REACT_APP_API_URL`| Backend API base URL            |
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Usage
+1. **User**:
+   - Visit `http://localhost:3000`
+   - Click **Claim Coupon** to get a coupon.
 
-### Making a Progressive Web App
+2. **Admin**:
+   - Visit `http://localhost:3000/admin/login`
+   - Login with credentials (default: `admin`/`admin123`)
+   - View coupons and claim history in the admin panel.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Contributing
+1. Fork the repository
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+3. Commit changes:
+   ```bash
+   git commit -m "Add your feature"
+   ```
+4. Push to branch:
+   ```bash
+   git push origin feature/your-feature
+   ```
+5. Open a pull request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## License
+Distributed under the MIT License. See `LICENSE` for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Contact
+- **Anirudh** - [anirudhmishra112233@gmail.com](mailto:your.email@example.com)
+- **GitHub**: [@anirudhxmishra](https://github.com/yourusername)
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
